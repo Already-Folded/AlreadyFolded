@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Already Folded</title>
+  <style>
+    /* Color Palette */
+    :root {
+      --primary: #3B82F6;   /* Primary Brand Color (blue) */
+      --accent: #FBBF24;    /* Accent Color (amber) */
+      --neutral: #F9FAFB;   /* Neutral Background Color (light gray) */
+      --dark: #111827;      /* Dark text */
+      --light: #FFFFFF;     /* White */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--neutral);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header img {
+      max-width: 300px;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .problem, .guide, .plan, .success-failure, .b2b {
+      background: var(--light);
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    img.section-img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .plan-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .plan-step {
+      flex: 1 1 250px;
+      background: var(--neutral);
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .plan-step img {
+      max-width: 80px;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .cta button {
+      background: var(--accent);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      opacity: 0.9;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form input {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      background: var(--dark);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .plan-steps {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Your Laundry. Done. So You Can Get Your Life Back.</h1>
+    <p>Already Folded helps busy parents win the battle against laundry chaos.</p>
+    <img src="https://via.placeholder.com/600x300?text=Happy+Family" alt="Happy family enjoying free time"/>
+    <div class="cta">
+      <button>Start Saving Time Now</button>
+    </div>
+  </header>
+
+  <section class="problem">
+    <h2>The Problem</h2>
+    <p>You love your family, but the endless piles of laundry steal your time, energy, and peace of mind. The laundry basket is the villain that never sleeps.</p>
+    <img class="section-img" src="https://via.placeholder.com/800x400?text=Overflowing+Laundry" alt="Overflowing laundry basket"/>
+    <div class="cta">
+      <button>Get on the Pilot List</button>
+    </div>
+  </section>
+
+  <section class="guide">
+    <h2>The Guide</h2>
+    <p>At Already Folded, we understand the struggle. We’re the reliable partner that takes laundry off your plate—so you can focus on what matters most: your family.</p>
+    <img class="section-img" src="https://via.placeholder.com/800x400?text=Friendly+Service+Team" alt="Friendly service team"/>
+    <div class="cta">
+      <button>Start Saving Time Now</button>
+    </div>
+  </section>
+
+  <section class="plan">
+    <h2>The Plan</h2>
+    <div class="plan-steps">
+      <div class="plan-step">
+        <img src="https://via.placeholder.com/80?text=1" alt="Step 1"/>
+        <h3>Sign Up</h3>
+        <p>Join our pilot program and reserve your spot.</p>
+      </div>
+      <div class="plan-step">
+        <img src="https://via.placeholder.com/80?text=2" alt="Step 2"/>
+        <h3>Drop Off</h3>
+        <p>Bring your laundry in one of our convenient bags.</p>
+      </div>
+      <div class="plan-step">
+        <img src="https://via.placeholder.com/80?text=3" alt="Step 3"/>
+        <h3>Pick Up Clean</h3>
+        <p>Get your clothes back fresh, folded, and ready to use.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <button>Start Saving Time Now</button>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required/>
+        <input type="email" name="email" placeholder="Your Email" required/>
+        <button type="submit">Get on the Pilot List</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="success-failure">
+    <h2>Success vs. Failure</h2>
+    <p><strong>Success:</strong> More free time for family outings, bedtime stories, and self-care—without the laundry pile looming over you.</p>
+    <p><strong>Failure:</strong> Continue in the cycle of stress, spending hours sorting, washing, and folding instead of enjoying life.</p>
+    <img class="section-img" src="https://via.placeholder.com/800x400?text=Family+Time+vs+Laundry+Chaos" alt="Success vs. failure contrast"/>
+    <div class="cta">
+      <button>Take the First Step Today</button>
+    </div>
+  </section>
+
+  <section class="b2b">
+    <h2>A Profitable Partnership for Daycares</h2>
+    <p>Already Folded partners with daycares to provide parents with a premium, time-saving laundry solution. By offering our service as an add-on, you can increase satisfaction and create a new revenue stream.</p>
+    <img class="section-img" src="https://via.placeholder.com/800x400?text=Daycare+Partnership" alt="Daycare partnership"/>
+    <div class="cta">
+      <button>Learn More About Our Partnership Program</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>Already Folded &copy; 2025</p>
+    <p>Contact: info@alreadyfolded.com | (123) 456-7890</p>
+  </footer>
+
+</body>
+</html>
