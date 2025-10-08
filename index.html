@@ -60,11 +60,38 @@
       margin-bottom: 1rem;
     }
 
-    img.section-img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
+    /* Limit and balance image sizes */
+img.section-img {
+  width: auto;
+  max-width: 80%;
+  height: auto;
+  max-height: 350px;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Header image (family photo) */
+header img {
+  width: auto;
+  max-width: 60%;
+  max-height: 300px;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Plan step icons smaller & balanced */
+.plan-step img {
+  max-width: 60px;
+  max-height: 60px;
+  margin-bottom: 0.5rem;
+}
+
 
     .plan-steps {
       display: flex;
