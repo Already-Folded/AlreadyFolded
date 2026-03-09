@@ -601,7 +601,7 @@
   <a href="#how-it-works">How It Works</a>
   <a href="privacy.html">Privacy Policy</a>
   <a href="terms.html">Terms of Service</a>
-  <a href="mailto:info@alreadyfolded.com">info@alreadyfolded.com</a>
+
     <a href="mailto:info@alreadyfolded.com">info@alreadyfolded.com</a>
   </div>
   <p class="footer-copy">© 2025 Already Folded</p>
@@ -610,6 +610,7 @@
 <script>
 
   document.getElementById('contactForm').addEventListener('submit', function(e) {
+    console.log(e)
   // If you are using a real form backend (like Formspree or Netlify), 
   // you don't need preventDefault() here.
   // But for a simple redirect:
