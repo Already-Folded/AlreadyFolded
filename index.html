@@ -608,6 +608,13 @@
 </footer>
 
 <script>
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  // If you are using a real form backend (like Formspree or Netlify), 
+  // you don't need preventDefault() here.
+  // But for a simple redirect:
+  window.location.href = 'success.html';
+});
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
