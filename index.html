@@ -1,289 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="AlreadyFoldedLogo.png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-    <title>Already Folded: Premium Laundry Partnership for Daycares & Parents</title>
-    <meta name="description" content="Already Folded partners with daycares to increase parent satisfaction, create new revenue streams, and eliminate laundry stress for families with premium wash and fold delivery.">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Already Folded Daycare Laundry Partnership",
-      "image": "https://alreadyfolded.com/logo.png", 
-      "url": "https://alreadyfolded.com",
-      "telephone": "(123) 456-7890",
-      "priceRange": "$$",
-      "serviceType": "Commercial Laundry Service",
-      "areaServed": "List your core cities/states here (e.g., Dallas, Texas)",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Your HQ Street Address",
-        "addressLocality": "Your City",
-        "addressRegion": "Your State",
-        "postalCode": "Your Zip Code",
-        "addressCountry": "US"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Wash and Fold Laundry Delivery",
-      "areaServed": "List a few major metro areas.",
-      "description": "Premium, professional wash, dry, and fold service provided through partner daycares for ultimate parent convenience."
-    }
-    </script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="AlreadyFoldedLogo.png">
+  <title>Already Folded — The Laundry Partnership Built for Daycares</title>
+  <meta name="description" content="Already Folded partners with daycares to offer families professional wash & fold pickup. Zero staff burden. New revenue. Higher parent satisfaction. Schedule a call today.">
 
-    <style>
-        header {
-            /* Adjust the background image and overlay for strong contrast */
-            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("family.png");
-            background-size: cover;
-            background-position: center;
-            padding: 6rem 2rem; 
-            color: white !important;
-            text-align: center;
-        }
-        header h1, header p {
-            /* Ensure white text is legible */
-            text-shadow: 0 4px 6px rgba(0,0,0,0.8);
-            color: white !important;
-        }
-        /* Custom padding for general sections to match previous layout feel */
-        .content-section {
-            padding: 3rem 2rem !important;
-        }
-        /* Custom button spacing to match the dual CTA groups */
-        .cta-group {
-            margin-top: 2rem !important;
-        }
-        /* Style for the step icons (optional, for better visual hierarchy) */
-        .plan-step .icon {
-            font-size: 3em;
-            margin-bottom: 0.5rem;
-            color: #3B82F6; /* Primary color */
-        }
-        /* New style for the added guarantee bar */
-        .guarantee-bar {
-            background-color: #f3f3f3;
-            padding: 0.5rem 1rem;
-            margin-top: 1rem;
-            border-radius: 4px;
-            color: #333;
-            font-weight: bold;
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,700&family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0D1B2A;
+      --navy2:   #162436;
+      --sky:     #E8F4FD;
+      --white:   #FFFFFF;
+      --off:     #F5F8FA;
+      --blue:    #1D6FA4;
+      --blue-lt: #3A8DC2;
+      --teal:    #1A9B8A;
+      --teal-lt: #E6F7F5;
+      --amber:   #E07B2A;
+      --amber-lt:#FEF3E8;
+      --ink:     #0D1B2A;
+      --body:    #3D5166;
+      --muted:   #7A90A4;
+      --border:  #D8E4EE;
+      --ff-head: 'Fraunces', Georgia, serif;
+      --ff-body: 'Epilogue', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-body); color: var(--body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex; align-items: center;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-logo { font-family: var(--ff-head); font-weight: 900; font-size: 1.25rem; color: var(--navy); text-decoration: none; letter-spacing: -0.02em; white-space: nowrap; }
+    .nav-logo span { color: var(--blue); }
+    .nav-center { display: flex; gap: 2rem; align-items: center; }
+    .nav-center a { font-size: 0.85rem; font-weight: 500; color: var(--body); text-decoration: none; transition: color .2s; }
+    .nav-center a:hover { color: var(--blue); }
+    .nav-cta { background: var(--navy); color: #fff !important; padding: .5rem 1.25rem; border-radius: 8px; font-size: .82rem !important; font-weight: 700 !important; white-space: nowrap; transition: background .2s; }
+    .nav-cta:hover { background: var(--blue) !important; }
+    @media(max-width:760px){ .nav-center { display:none; } }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.75rem; border-radius: 8px; font-family: var(--ff-body); font-size: .95rem; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: all .22s; white-space: nowrap; }
+    .btn-navy  { background: var(--navy);  color: #fff; }
+    .btn-navy:hover  { background: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,111,164,.3); }
+    .btn-blue  { background: var(--blue);  color: #fff; }
+    .btn-blue:hover  { background: var(--blue-lt); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--navy); border: 2px solid rgba(255,255,255,.3); color: white; }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); }
+    .btn-teal  { background: var(--teal);  color: #fff; }
+    .btn-teal:hover  { background: #158070; transform: translateY(-2px); }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+    .btn-white { background: white; color: var(--blue); font-weight: 700; }
+    .btn-white:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+    .btn-outline-white { background: transparent; color: white; border: 2px solid rgba(255,255,255,.4); }
+    .btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
+
+    /* HERO */
+    .hero { background: var(--navy); min-height: 88vh; display: grid; grid-template-columns: 1fr 500px; align-items: center; overflow: hidden; position: relative; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(29,111,164,.18) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(26,155,138,.12) 0%, transparent 55%); pointer-events: none; }
+    .hero-copy { padding: 6rem clamp(2rem,6vw,5rem); position: relative; z-index: 1; animation: heroIn .9s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes heroIn { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    .hero-pill { display: inline-flex; align-items: center; gap: .45rem; background: rgba(29,111,164,.25); border: 1px solid rgba(29,111,164,.5); color: #7EC8EA; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 100px; margin-bottom: 1.75rem; }
+    .hero-pill::before { content: "◆"; font-size: .55rem; }
+    .hero h1 { font-family: var(--ff-head); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: #7EC8EA; }
+    .hero-sub { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,.7); max-width: 520px; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-sub strong { color: rgba(255,255,255,.95); font-weight: 600; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-proof { display: flex; gap: 2.5rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.1); }
+    .proof-num { font-family: var(--ff-head); font-size: 1.9rem; font-weight: 700; color: #7EC8EA; line-height: 1; }
+    .proof-label { font-size: .72rem; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .07em; margin-top: .2rem; }
+    .hero-panel { height: 88vh; background: rgba(255,255,255,.04); border-left: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; padding: 3.5rem 3rem; position: relative; z-index: 1; gap: 1.5rem; }
+    .hero-panel-label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: .5rem; }
+    .outcome-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 1.5rem; transition: background .2s, border .2s; }
+    .outcome-card:hover { background: rgba(255,255,255,.1); border-color: rgba(29,111,164,.5); }
+    .outcome-icon { font-size: 1.6rem; margin-bottom: .75rem; display: block; }
+    .outcome-title { font-family: var(--ff-head); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
+    .outcome-desc { font-size: .83rem; color: rgba(255,255,255,.55); line-height: 1.6; }
+    @media(max-width:960px){ .hero { grid-template-columns: 1fr; min-height: auto; } .hero-panel { height: auto; border-left: none; border-top: 1px solid rgba(255,255,255,.08); flex-direction: row; flex-wrap: wrap; padding: 2.5rem 2rem; gap: 1rem; } .outcome-card { flex: 1 1 200px; } }
+
+    /* SECTION SHELL */
+    .section { padding: 6rem clamp(1.5rem,6vw,5rem); }
+    .section-tag { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); margin-bottom: .9rem; }
+    .section-h { font-family: var(--ff-head); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--ink); line-height: 1.15; letter-spacing: -.025em; margin-bottom: 1rem; }
+    .section-lead { font-size: 1.05rem; color: var(--muted); max-width: 580px; line-height: 1.75; }
+
+    /* VALUE PROPS */
+    .value-section { background: var(--off); }
+    .value-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2.5rem; }
+    .value-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: transform .2s, box-shadow .2s; }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(13,27,42,.08); }
+    .value-card-icon { font-size: 1.5rem; margin-bottom: .75rem; }
+    .value-card-title { font-size: .9rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+    .value-card-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .p-l-box { background: var(--navy); border-radius: 20px; padding: 2.5rem; color: white; position: sticky; top: 5rem; }
+    .p-l-title { font-family: var(--ff-head); font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: .4rem; }
+    .p-l-sub { font-size: .82rem; color: rgba(255,255,255,.5); margin-bottom: 2rem; }
+    .p-l-row { display: flex; justify-content: space-between; align-items: center; padding: .9rem 0; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .88rem; }
+    .p-l-row:last-of-type { border-bottom: none; margin-bottom: 1.5rem; }
+    .p-l-row .label { color: rgba(255,255,255,.6); }
+    .p-l-row .val { font-weight: 700; color: white; }
+    .p-l-row .val.green { color: #5DD4A8; }
+    .p-l-row .val.amber { color: #F5A84E; }
+    .p-l-note { font-size: .75rem; color: rgba(255,255,255,.3); margin-top: 1.25rem; text-align: center; }
+    @media(max-width:900px){ .value-inner { grid-template-columns: 1fr; gap: 3rem; } .value-grid { grid-template-columns: 1fr 1fr; } .p-l-box { position: static; } }
+    @media(max-width:500px){ .value-grid { grid-template-columns: 1fr; } }
+
+    /* HOW IT WORKS */
+    .how-section { background: var(--white); }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .how-header { text-align: center; margin-bottom: 4rem; }
+    .how-header .section-lead { margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+    .steps::after { content: ""; position: absolute; top: 2.25rem; left: 12.5%; right: 12.5%; height: 1px; background: repeating-linear-gradient(90deg, var(--border) 0, var(--border) 6px, transparent 6px, transparent 14px); }
+    .step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .step-bubble { width: 3rem; height: 3rem; border-radius: 50%; background: var(--navy); color: white; font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 0 0 6px var(--white), 0 0 0 7px var(--border); transition: background .2s; }
+    .step:hover .step-bubble { background: var(--blue); }
+    .step-who { display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 100px; margin-bottom: .6rem; }
+    .step-who.daycare { background: var(--sky); color: var(--blue); }
+    .step-who.af { background: var(--teal-lt); color: var(--teal); }
+    .step h4 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .5rem; }
+    .step p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    @media(max-width:760px){ .steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; } .steps::after { display: none; } }
+    @media(max-width:480px){ .steps { grid-template-columns: 1fr; } }
+
+    /* OBJECTIONS */
+    .objections-section { background: var(--off); }
+    .obj-inner { max-width: 960px; margin: 0 auto; }
+    .obj-header { text-align: center; margin-bottom: 3.5rem; }
+    .obj-header .section-lead { margin: 0 auto; }
+    .obj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .obj-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: box-shadow .2s; }
+    .obj-card:hover { box-shadow: 0 10px 30px rgba(13,27,42,.07); }
+    .obj-q { font-size: .8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .obj-q::before { content: "?"; background: var(--border); color: var(--muted); width:18px; height:18px; border-radius:50%; font-size:.75rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .obj-a { font-size: .92rem; color: var(--body); line-height: 1.7; font-weight: 500; }
+    .obj-a strong { color: var(--ink); }
+    @media(max-width:640px){ .obj-grid { grid-template-columns: 1fr; } }
+
+    /* TESTIMONIALS */
+    .testimonials-section { background: var(--navy); }
+    .test-inner { max-width: 1100px; margin: 0 auto; }
+    .test-header { text-align: center; margin-bottom: 3.5rem; }
+    .test-header .section-tag { color: #7EC8EA; }
+    .test-header .section-h { color: white; }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .test-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 2rem; transition: background .2s, border .2s, transform .2s; }
+    .test-card:hover { background: rgba(255,255,255,.09); border-color: rgba(29,111,164,.4); transform: translateY(-3px); }
+    .test-card.primary { background: var(--blue); border-color: var(--blue); }
+    .test-stars { color: #F5C842; font-size: .8rem; margin-bottom: 1rem; letter-spacing: .05em; }
+    .test-quote-mark { font-family: var(--ff-head); font-size: 3rem; line-height: 1; color: rgba(255,255,255,.2); margin-bottom: .5rem; display: block; }
+    .test-card.primary .test-quote-mark { color: rgba(255,255,255,.4); }
+    .test-body { font-size: .9rem; color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 1.5rem; }
+    .test-author { display: flex; align-items: center; gap: .75rem; }
+    .test-av { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; color: #7EC8EA; flex-shrink: 0; }
+    .test-card.primary .test-av { background: rgba(255,255,255,.2); color: white; }
+    .test-name { font-size: .83rem; font-weight: 700; color: white; }
+    .test-role { font-size: .72rem; color: rgba(255,255,255,.4); }
+    @media(max-width:760px){ .test-grid { grid-template-columns: 1fr; } }
+
+    /* PARENT SECTION */
+    .parent-section { background: linear-gradient(135deg, var(--teal-lt) 0%, #F0FAF8 100%); border-top: 1px solid rgba(26,155,138,.15); }
+    .parent-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .parent-copy .section-tag { color: var(--teal); }
+    .parent-steps { margin: 2rem 0; display: flex; flex-direction: column; gap: .75rem; }
+    .parent-step { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.25rem; background: white; border-radius: 12px; border: 1px solid rgba(26,155,138,.15); transition: border-color .2s; }
+    .parent-step:hover { border-color: var(--teal); }
+    .ps-num { width: 26px; height: 26px; border-radius: 50%; background: var(--teal); color: white; font-size: .78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .1rem; }
+    .ps-text { font-size: .9rem; color: var(--body); line-height: 1.6; }
+    .ps-text strong { color: var(--ink); }
+    .parent-share { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(26,155,138,.2); box-shadow: 0 8px 32px rgba(26,155,138,.08); }
+    .share-title { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+    .share-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .share-msg { background: var(--off); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; font-size: .87rem; color: var(--body); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .share-actions { display: flex; gap: .75rem; flex-wrap: wrap; }
+    .share-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .6rem 1.1rem; border-radius: 8px; font-size: .82rem; font-weight: 700; cursor: pointer; border: none; font-family: var(--ff-body); transition: all .2s; }
+    .share-btn.copy { background: var(--navy); color: white; }
+    .share-btn.copy:hover { background: var(--blue); }
+    .share-btn.email { background: var(--teal-lt); color: var(--teal); border: 1px solid rgba(26,155,138,.2); }
+    .share-btn.email:hover { background: var(--teal); color: white; }
+    @media(max-width:860px){ .parent-inner { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* CTA STRIP */
+    .cta-strip { background: var(--blue); padding: 5rem clamp(1.5rem,6vw,5rem); text-align: center; position: relative; overflow: hidden; }
+    .cta-strip::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 120% at 50% 120%, rgba(255,255,255,.08) 0%, transparent 60%); pointer-events: none; }
+    .cta-strip h2 { font-family: var(--ff-head); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; color: white; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 1rem; position: relative; z-index: 1; }
+    .cta-strip p { font-size: 1.05rem; color: rgba(255,255,255,.75); margin-bottom: 2.5rem; position: relative; z-index: 1; }
+    .cta-strip-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* CONTACT */
+    .contact-section { background: var(--white); }
+    .contact-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-list { list-style: none; margin: 1.5rem 0 2rem; }
+    .contact-list li { padding: .65rem 0; border-bottom: 1px solid var(--border); font-size: .9rem; color: var(--body); display: flex; align-items: center; gap: .6rem; }
+    .contact-list li::before { content: "✓"; color: var(--teal); font-weight: 700; }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-form { background: var(--off); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+    .form-title { font-family: var(--ff-head); font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: .3rem; }
+    .form-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: .78rem; font-weight: 700; color: var(--ink); margin-bottom: .35rem; letter-spacing: .03em; }
+    .field input, .field select { width: 100%; padding: .8rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: .9rem; font-family: var(--ff-body); color: var(--ink); background: white; outline: none; transition: border .2s, box-shadow .2s; }
+    .field input:focus, .field select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,111,164,.12); }
+    .field input::placeholder { color: var(--muted); }
+    .submit-btn { width: 100%; padding: 1rem; background: var(--navy); color: white; border: none; border-radius: 8px; font-size: .95rem; font-weight: 700; font-family: var(--ff-body); cursor: pointer; transition: background .2s, transform .2s; margin-top: .5rem; }
+    .submit-btn:hover { background: var(--blue); transform: translateY(-1px); }
+    .form-note { font-size: .73rem; color: var(--muted); text-align: center; margin-top: .75rem; }
+    @media(max-width:800px){ .contact-inner { grid-template-columns: 1fr; gap: 3rem; } }
+
+    /* FAQ */
+    .faq-section { background: var(--off); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 3rem; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.35rem 0; cursor: pointer; gap: 1rem; }
+    .faq-q-text { font-size: .95rem; font-weight: 600; color: var(--ink); }
+    .faq-toggle { width: 26px; height: 26px; border-radius: 50%; background: var(--sky); border: 1px solid var(--border); color: var(--blue); font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .2s; }
+    .faq-item.open .faq-toggle { background: var(--blue); color: white; transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 1.35rem; font-size: .9rem; color: var(--muted); line-height: 1.75; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 2.5rem clamp(1.5rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-logo { font-family: var(--ff-head); font-size: 1.1rem; font-weight: 900; color: white; text-decoration: none; }
+    .footer-logo span { color: #7EC8EA; }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .footer-links a { font-size: .78rem; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: #7EC8EA; }
+    .footer-copy { font-size: .73rem; color: rgba(255,255,255,.2); }
+
+    /* FADE */
+    .fade { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .fade.in { opacity: 1; transform: translateY(0); }
+    .fade-d1 { transition-delay: .1s; }
+    .fade-d2 { transition-delay: .2s; }
+    .fade-d3 { transition-delay: .3s; }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="ui container">
-            <h1 class="ui huge header">The <strong>Premium Laundry Partnership</strong> That Delights Parents and Grows Daycare Revenue.</h1>
-            <p class="ui large text">Already Folded is the zero-effort, time-saving <strong>wash and fold delivery</strong> solution built exclusively for daycare families.</p>
-            
-            <div class="guarantee-bar">
-                FREE Pickup & Delivery | Guaranteed Next-Day Turnaround
-            </div>
+<nav>
+  <a href="#" class="nav-logo">Already <span>Folded</span></a>
+  <div class="nav-center">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#for-parents">For Parents</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Book a Call →</a>
+  </div>
+</nav>
 
-            <div class="ui center aligned grid cta-group">
-                <div class="row">
-                    <a href="#" class="ui huge primary button circular cta-b2b">I'm a <strong>Daycare:</strong> Partner With Us</a>
-                    <a href="#" class="ui huge inverted primary button circular cta-b2c">I'm a <strong>Parent:</strong> Find a Partner Daycare</a>
-                </div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <span class="hero-pill">B2B Laundry Partnership Program</span>
+    <h1>The amenity that fills<br>your waitlist —<br>and <em>runs itself.</em></h1>
+    <p class="hero-sub">
+      Already Folded is a <strong>fully managed wash &amp; fold service</strong> delivered through your daycare. Zero staff burden. A new revenue stream. And a parent benefit so good, <strong>it becomes your #1 enrollment differentiator.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-blue btn-lg">Book a 15-Min Partnership Call →</a>
+      <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-stat">
+        <div class="proof-num">$0</div>
+        <div class="proof-label">Cost to your daycare</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-num">24h</div>
+        <div class="proof-label">Guaranteed turnaround</div>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-num">100%</div>
+        <div class="proof-label">Logistics handled by us</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-panel">
+    <div class="hero-panel-label">What your daycare gets</div>
+    <div class="outcome-card">
+      <span class="outcome-icon">💰</span>
+      <div class="outcome-title">New Passive Revenue</div>
+      <div class="outcome-desc">Earn a referral fee on every active subscription — no invoicing, no chasing. Paid monthly, automatically.</div>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-icon">⭐</span>
+      <div class="outcome-title">Higher Parent Satisfaction</div>
+      <div class="outcome-desc">Parents rave about it in reviews. Convenient amenities are among the top factors in daycare selection and retention.</div>
+    </div>
+    <div class="outcome-card">
+      <span class="outcome-icon">📋</span>
+      <div class="outcome-title">Enrollment Differentiator</div>
+      <div class="outcome-desc">Stand out in every tour. "We include a premium laundry pickup service" is a line no competitor can match.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="section value-section" id="value">
+  <div class="value-inner">
+    <div class="value-left fade">
+      <span class="section-tag">Why Daycare Directors Partner With Us</span>
+      <h2 class="section-h">Three problems solved.<br>Zero new work.</h2>
+      <p class="section-lead">Daycares face constant pressure to attract new families, retain enrolled ones, and reduce operational headaches. Already Folded addresses all three — without adding a single task to your staff's plate.</p>
+      <div class="value-grid">
+        <div class="value-card fade fade-d1">
+          <div class="value-card-icon">💵</div>
+          <div class="value-card-title">Passive Revenue</div>
+          <div class="value-card-desc">Earn monthly commissions on every subscribing family — no staff time required.</div>
         </div>
-    </header>
-
-    <section class="ui segment content-section b2b">
-        <div class="ui container">
-            <h2 class="ui dividing header">For Daycare Directors: Grow Revenue & Enhance Enrollment</h2>
-            <p class="ui large text">Already Folded handles 100% of the logistics, turning a daily chore into a premium, value-add service for your families. Our program is a guaranteed way to:</p>
-            <div class="ui bulleted list aligned left">
-                <div class="item"><strong>Create a New Passive Revenue Stream</strong> with zero operational overhead.</div>
-                <div class="item"><strong>Boost Parent Satisfaction</strong> and attract new enrollments.</div>
-                <div class="item"><strong>Simplify Staff Duties</strong> by eliminating the need to manage soiled clothing.</div>
-            </div>
-            <img class="ui circular image small section-img" src="AlreadFoldedLogo.png" alt="Daycare director reviewing partnership details for <strong>commercial laundry service</strong>">
-            <div class="cta-section-only">
-                <a href="#" class="ui huge primary button">Schedule a 5-Minute P&L Consultation</a>
-            </div>
+        <div class="value-card fade fade-d2">
+          <div class="value-card-icon">🏆</div>
+          <div class="value-card-title">Enrollment Edge</div>
+          <div class="value-card-desc">A premium, exclusive amenity that genuinely stands out in enrollment conversations and tours.</div>
         </div>
-    </section>
-
-    <section class="ui segment content-section testimonials">
-        <div class="ui container">
-            <h2 class="ui dividing header">Trusted by Parents and Partners</h2>
-            <p class="ui large text">See why daycares and families are choosing Already Folded.</p>
-            
-            <div class="ui two cards centered testimonials-grid">
-                <div class="card">
-                    <div class="content">
-                        <i class="quote left icon large primary"></i>
-                        <div class="description">
-                            "The partnership process was seamless, and the parents rave about the convenience. We've seen a noticeable increase in positive feedback and even new enrollments since offering this service."
-                        </div>
-                        <div class="meta aligned right">
-                            — Sarah L., Daycare Owner
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="content">
-                        <i class="quote left icon large primary"></i>
-                        <div class="description">
-                            "Getting my laundry back folded and organized at daycare pickup is a total game-changer. I used to spend my entire Sunday folding. Now, that time is mine again!"
-                        </div>
-                        <div class="meta aligned right">
-                            — Mark R., Busy Parent
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="value-card fade fade-d1">
+          <div class="value-card-icon">😊</div>
+          <div class="value-card-title">Parent Retention</div>
+          <div class="value-card-desc">Families who use the service report higher overall satisfaction and are less likely to disenroll.</div>
         </div>
-    </section>
-
-    <section class="ui segment content-section problem">
-        <div class="ui container">
-            <h2 class="ui dividing header">The Parent Problem: Endless Laundry Chaos</h2>
-            <p class="ui large text">You love your family, but the endless piles of laundry steal your time, energy, and peace of mind. The laundry basket is the villain that never sleeps. <strong>We're here to stop the cycle.</strong></p>
-            <img class="ui circular image small section-img" src="laundry.png" alt="Overflowing laundry basket that represents parental stress and the need for wash and fold delivery">
-            <div class="cta-section-only">
-                <a href="#" class="ui huge primary button circular">Get on the Pilot List</a>
-            </div>
+        <div class="value-card fade fade-d2">
+          <div class="value-card-icon">🙌</div>
+          <div class="value-card-title">Staff Relief</div>
+          <div class="value-card-desc">Eliminate soiled clothing management. One simple daily handoff is all that's needed.</div>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="value-right fade fade-d2">
+      <div class="p-l-box">
+        <div class="p-l-title">Illustrative Revenue Model</div>
+        <div class="p-l-sub">Based on a 60-family daycare at 30% adoption</div>
+        <div class="p-l-row"><span class="label">Participating families</span><span class="val">18</span></div>
+        <div class="p-l-row"><span class="label">Avg. plan value</span><span class="val">$79 / mo</span></div>
+        <div class="p-l-row"><span class="label">Your referral rate</span><span class="val amber">15%</span></div>
+        <div class="p-l-row"><span class="label">Est. monthly revenue</span><span class="val green">+$213 / mo</span></div>
+        <div class="p-l-row"><span class="label">Annual passive income</span><span class="val green">+$2,556 / yr</span></div>
+        <a href="#contact" class="btn btn-blue" style="width:100%; justify-content:center; margin-top: 1rem;">Get Your Custom P&amp;L Estimate →</a>
+        <div class="p-l-note">Actual results vary by enrollment size and participation rate.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="ui segment content-section guide" style="background-color: #f0f0f0;">
-        <div class="ui container">
-            <h2 class="ui dividing header">The Commercial Laundry Experts: Authority You Can Trust</h2>
-            <p class="ui large text">We empathize with the struggle of balancing work and family. As the trusted leader in daycare laundry solutions, we deliver guaranteed quality with specialized processes and **pediatrician-recommended cleaning products.**</p>
-            <p class="ui large text">We are backed by **years of expertise** and processes that ensure your child's clothes are safe, clean, and perfectly folded—**every single time.** Our **hypoallergenic detergent** is the standard, prioritizing sensitive skin.</p>
-            <img class="ui circular image section-img" src="https://via.placeholder.com/800x400?text=Friendly+Service+Team" alt="Friendly service team handling fresh, perfectly folded laundry">
-            <div class="cta-section-only">
-                <a href="#" class="ui huge primary button circular">See How Easy It Is</a>
-            </div>
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how-it-works">
+  <div class="how-inner">
+    <div class="how-header fade">
+      <span class="section-tag">The Partnership Process</span>
+      <h2 class="section-h">From handshake to launch in days, not months.</h2>
+      <p class="section-lead">We handle the setup, supplies, and logistics. Your team does one simple thing each day.</p>
+    </div>
+    <div class="steps">
+      <div class="step fade">
+        <div class="step-bubble">1</div>
+        <span class="step-who daycare">Your Daycare</span>
+        <h4>15-Min Discovery Call</h4>
+        <p>We walk through your enrollment size, goals, and build a revenue model tailored to your facility.</p>
+      </div>
+      <div class="step fade fade-d1">
+        <div class="step-bubble">2</div>
+        <span class="step-who af">Already Folded</span>
+        <h4>We Handle Setup</h4>
+        <p>We ship branded bags, onboard your team in under an hour, and activate parent sign-ups via your private link.</p>
+      </div>
+      <div class="step fade fade-d2">
+        <div class="step-bubble">3</div>
+        <span class="step-who daycare">Your Daycare</span>
+        <h4>One Daily Handoff</h4>
+        <p>Staff accept drop-offs at arrival and return clean bags at pickup. That's the entire operational lift.</p>
+      </div>
+      <div class="step fade fade-d3">
+        <div class="step-bubble">4</div>
+        <span class="step-who af">Already Folded</span>
+        <h4>You Get Paid Monthly</h4>
+        <p>Referral revenue arrives automatically. No invoicing, no chasing — just passive income each month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="section objections-section">
+  <div class="obj-inner">
+    <div class="obj-header fade">
+      <span class="section-tag">Common Questions From Directors</span>
+      <h2 class="section-h">We've heard every concern.<br>Here's the truth.</h2>
+      <p class="section-lead">Most directors ask the same four questions before signing on. Here they are, answered plainly.</p>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card fade">
+        <div class="obj-q">What does this cost my daycare?</div>
+        <div class="obj-a"><strong>Nothing.</strong> There is zero cost to partner. We supply the bags, onboarding, and account management. You earn revenue — you don't spend any.</div>
+      </div>
+      <div class="obj-card fade fade-d1">
+        <div class="obj-q">How much time does this take my staff?</div>
+        <div class="obj-a">The entire daily lift is <strong>accepting a bag at arrival and returning it at pickup.</strong> We estimate under 5 minutes per day per location.</div>
+      </div>
+      <div class="obj-card fade fade-d2">
+        <div class="obj-q">What if parents don't adopt it?</div>
+        <div class="obj-a">We provide a launch kit with parent-facing materials and email templates. We've seen <strong>25–40% adoption rates</strong> at comparable facilities within the first 30 days.</div>
+      </div>
+      <div class="obj-card fade fade-d3">
+        <div class="obj-q">Does this work for chains and multi-site operators?</div>
+        <div class="obj-a"><strong>Yes — and the economics improve at scale.</strong> We offer multi-location agreements with centralized billing, dashboards, and a single dedicated account manager.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="test-inner">
+    <div class="test-header fade">
+      <span class="section-tag">Partner Voices</span>
+      <h2 class="section-h">Directors don't take our word for it.</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card fade">
+        <div class="test-stars">★★★★★</div>
+        <span class="test-quote-mark">"</span>
+        <p class="test-body">I expected parents to be mildly interested. Instead, we had 11 families sign up in the first week. It's now part of our enrollment pitch on every single tour.</p>
+        <div class="test-author">
+          <div class="test-av">SL</div>
+          <div><div class="test-name">Sarah L.</div><div class="test-role">Director, 72-family independent daycare</div></div>
         </div>
-    </section>
-
-    <section class="ui inverted segment content-section plan">
-        <div class="ui container">
-            <h2 class="ui dividing header">The 3-Step Plan to a Laundry-Free Life</h2>
-            
-            <div class="ui three column stackable grid centered plan-steps">
-                <div class="column">
-                    <div class="ui segment plan-step">
-                        <i class="user circle icon huge primary"></i>
-                        <h3 class="ui header">1. Choose Your Flat-Rate Bag Plan</h3>
-                        <p>Sign up through your partner daycare and select your monthly bag plan. **Rollover Bags Never Expire!**</p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment plan-step">
-                        <i class="box icon huge primary"></i>
-                        <h3 class="ui header">2. Drop Off</h3>
-                        <p>Bring your laundry in one of our convenient, personalized bags at your daycare.</p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment plan-step">
-                        <i class="check square icon huge primary"></i>
-                        <h3 class="ui header">3. Pick Up Clean</h3>
-                        <p>Get your clothes back fresh, folded, and drawer-ready—**Next Day, Guaranteed.**</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-section-only ui attached message">
-                <h3 class="ui header">Ready to Join the Pilot Program?</h3>
-            </div>
-            
-            <form class="ui form centered segment attached" action="YOUR_BACKEND_ENDPOINT" method="POST" style="max-width: 400px; margin: 0 auto;">
-                <div class="field">
-                    <input type="text" name="name" placeholder="Your Name" required/>
-                </div>
-                <div class="field">
-                    <input type="email" name="email" placeholder="Your Email" required/>
-                </div>
-                <div class="field">
-                    <input type="text" name="zip_code" placeholder="Your Zip Code" required/> 
-                </div>
-                <button type="submit" class="ui primary button fluid"><strong>Secure My Spot on the Pilot List</strong></button>
-            </form>
+      </div>
+      <div class="test-card primary fade fade-d1">
+        <div class="test-stars">★★★★★</div>
+        <span class="test-quote-mark">"</span>
+        <p class="test-body">The onboarding took less than an hour. Revenue showed up in my account the following month. It genuinely runs itself — I forget it's there until I see the deposit.</p>
+        <div class="test-author">
+          <div class="test-av">DM</div>
+          <div><div class="test-name">David M.</div><div class="test-role">Owner, 3-location daycare group</div></div>
         </div>
-    </section>
-
-    <section class="ui segment content-section success-failure">
-        <div class="ui container">
-            <h2 class="ui dividing header"><strong>The Real Trade-Off:</strong> Time vs. To-Do List</h2>
-            <p class="ui large text">This isn't just about laundry—it's about the time you get back.</p>
-            <p class="ui large text"><strong>Success:</strong> More free time for family outings, bedtime stories, and self-care.</p>
-            <p class="ui large text"><strong>Failure:</strong> Continue in the cycle of stress, spending hours sorting, washing, and folding instead of enjoying life.</p>
-            <img class="ui circular image small section-img" src="svsf.png" alt="Success vs. failure contrast: Happy family playing vs. stressed person folding laundry. A clear benefit of our service.">
-            <div class="cta-section-only">
-                <a href="#" class="ui huge primary button circular">Take the First Step Today</a>
-            </div>
+      </div>
+      <div class="test-card fade fade-d2">
+        <div class="test-stars">★★★★★</div>
+        <span class="test-quote-mark">"</span>
+        <p class="test-body">Parents now ask about the laundry service before they ask about our curriculum. We've started listing it on our website and it's driving inbound inquiries we didn't have before.</p>
+        <div class="test-author">
+          <div class="test-av">RC</div>
+          <div><div class="test-name">Rachel C.</div><div class="test-role">Director, suburban franchise location</div></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="ui segment content-section faq">
-        <div class="ui container">
-            <h2 class="ui dividing header">Frequently Asked Questions</h2>
-            
-            <div class="ui styled accordion fluid aligned left">
-                <div class="title active">
-                    <i class="dropdown icon"></i>
-                    How much does the wash and fold delivery service cost?
-                </div>
-                <div class="content active">
-                    <p>Our service operates on a **Flat-Rate Bag Subscription Model**. Instead of confusing pricing based on weight, you pay a predictable monthly fee for a set number of bags. The best part? **Any unused bags automatically roll over and NEVER expire** as long as your subscription is active, guaranteeing you get full value.</p>
-                </div>
-                <div class="title">
-                    <i class="dropdown icon"></i>
-                    Is my child's laundry washed separately?
-                </div>
-                <div class="content">
-                    <p>Absolutely. Every order is cleaned, dried, and folded in its own dedicated load using premium, hypoallergenic detergents, guaranteeing safety and quality. <strong>Consistency is guaranteed.</strong></p>
-                </div>
-                <div class="title">
-                    <i class="dropdown icon"></i>
-                    How does the partnership with my daycare work?
-                </div>
-                <div class="content">
-                    <p>We provide all necessary supplies, training, and a dedicated account manager. Your staff only needs to coordinate the drop-off and pickup times—zero washing or folding is required by your team.</p>
-                </div>
-                <div class="title">
-                    <i class="dropdown icon"></i>
-                    Do I need to sign up if my daycare is already a partner?
-                </div>
-                <div class="content">
-                    <p>Yes. Enrollment is quick and easy through a private link provided by your daycare. This ensures your laundry is tagged and handled correctly from day one.</p>
-                </div>
-            </div>
+<!-- FOR PARENTS -->
+<section class="section parent-section" id="for-parents">
+  <div class="parent-inner">
+    <div class="parent-copy fade">
+      <span class="section-tag">For Parents</span>
+      <h2 class="section-h">Your laundry done at<br>drop-off. Ready at pickup.</h2>
+      <p class="section-lead">Already Folded is available exclusively through partner daycares. If yours isn't a partner yet, you can change that in about 30 seconds — just forward a message to your director.</p>
+      <div class="parent-steps">
+        <div class="parent-step">
+          <div class="ps-num">1</div>
+          <div class="ps-text">Drop your laundry bag at daycare alongside your child in the morning.</div>
         </div>
-    </section>
-
-    <footer class="ui inverted vertical footer segment">
-        <div class="ui center aligned container">
-            <p>Already Folded &copy; 2025 | <strong>Service Area Locator</strong></p>
-            <p>Contact: <strong>info@alreadyfolded.com</strong> | (123) 456-7890</p>
-            <p><a href="#" class="item">Privacy Policy</a> | <a href="#" class="item">Terms of Service</a></p>
+        <div class="parent-step">
+          <div class="ps-num">2</div>
+          <div class="ps-text">We wash, dry, and fold everything using <strong>hypoallergenic, child-safe detergent.</strong></div>
         </div>
-    </footer>
+        <div class="parent-step">
+          <div class="ps-num">3</div>
+          <div class="ps-text">Pick up your child — and your <strong>clean, folded laundry</strong> — same trip, no detour.</div>
+        </div>
+      </div>
+      <p style="font-size:.85rem; color:var(--muted);">Plans start at $49/mo. Unused bags roll over and never expire.</p>
+    </div>
+    <div class="parent-share fade fade-d1">
+      <div class="share-title">Not at a partner daycare yet?</div>
+      <div class="share-sub">Forward this message to your director — it takes 30 seconds and we'll handle the rest.</div>
+      <div class="share-msg" id="shareMsg">Hi [Director's name], I came across a service called Already Folded that offers daycares a free laundry pickup program for families — the daycare earns passive revenue, and parents get wash &amp; fold done at drop-off. Zero cost or work for the daycare. I'd love it if we could offer this. Their site is alreadyfolded.com.</div>
+      <div class="share-actions">
+        <button class="share-btn copy" onclick="copyMsg()">📋 Copy Message</button>
+        <a class="share-btn email" href="mailto:?subject=A%20service%20our%20daycare%20should%20offer&body=Hi%2C%0A%0AI%20came%20across%20Already%20Folded%20%E2%80%94%20a%20service%20that%20lets%20daycares%20offer%20families%20professional%20wash%20%26%20fold%20at%20no%20cost%20to%20the%20daycare.%20The%20daycare%20earns%20passive%20referral%20revenue%20and%20parents%20get%20laundry%20done%20at%20drop-off.%0A%0AI%27d%20love%20it%20if%20we%20could%20offer%20this.%20More%20at%20alreadyfolded.com.">✉️ Open in Email</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
-    
-    <script>
-        $(document).ready(function() {
-            $('.ui.accordion').accordion();
-        });
-    </script>
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Ready to add a revenue stream<br>your parents will love?</h2>
+  <p>Takes 15 minutes to explore. Zero cost to launch. No long-term commitment required.</p>
+  <div class="cta-strip-btns">
+    <a href="#contact" class="btn btn-white btn-lg">Book a Partnership Call →</a>
+    <a href="mailto:info@alreadyfolded.com" class="btn btn-outline-white btn-lg">Email Us Directly</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-copy fade">
+      <span class="section-tag">Let's Talk</span>
+      <h2 class="section-h">Book a free 15-minute partnership call.</h2>
+      <p class="section-lead">We'll walk through your daycare's enrollment size, estimate your revenue potential, and answer any questions — no pressure, no commitment.</p>
+      <ul class="contact-list">
+        <li>Custom P&amp;L estimate for your facility size</li>
+        <li>Walkthrough of the daily operational lift</li>
+        <li>Multi-site pricing if you operate more than one location</li>
+        <li>Timeline from signed agreement to live program</li>
+        <li>Answers to any questions your board or ownership may have</li>
+      </ul>
+      <p style="font-size:.85rem; color:var(--muted);">Prefer email? Reach us at <strong>info@alreadyfolded.com</strong> or call <strong>(123) 456-7890</strong>.</p>
+    </div>
+    <div class="contact-form fade fade-d1">
+      <div class="form-title">Request a Partnership Call</div>
+      <div class="form-sub">We respond within one business day.</div>
+      <form id="contactForm">
+        <div class="field"><label>Your Name</label><input type="text" placeholder="Jane Smith" required /></div>
+        <div class="field"><label>Daycare Name</label><input type="text" placeholder="Sunshine Learning Center" required /></div>
+        <div class="field"><label>Email Address</label><input type="email" placeholder="jane@yourdaycare.com" required /></div>
+        <div class="field">
+          <label>Number of Enrolled Families</label>
+          <select>
+            <option value="">Select a range...</option>
+            <option>Under 25</option>
+            <option>25–50</option>
+            <option>51–100</option>
+            <option>101–200</option>
+            <option>200+ (multi-site)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Number of Locations</label>
+          <select>
+            <option value="">Select...</option>
+            <option>1 location</option>
+            <option>2–5 locations</option>
+            <option>6+ locations</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Request My Partnership Call →</button>
+        <p class="form-note">No spam. No commitment. Just a conversation.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header fade">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-h">Questions from directors</h2>
+    </div>
+    <div class="faq-item open fade">
+      <div class="faq-q"><span class="faq-q-text">Is there any cost to the daycare to partner?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No. Partnership is completely free. We provide all bags, onboarding materials, and ongoing account support. Daycares earn revenue — they don't spend any.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q"><span class="faq-q-text">What exactly does our staff have to do?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Accept a labeled bag from a parent at drop-off, store it briefly, hand it to our driver when they collect — then return the clean bag at pickup. We estimate under 5 minutes per day total.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q"><span class="faq-q-text">How does the referral revenue get paid?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Monthly, automatically, via direct deposit or check. You receive a summary showing participating families and commission earned. No invoicing required on your end.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q"><span class="faq-q-text">We operate multiple locations. Does this scale?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes. Multi-site operators get a single agreement, centralized billing, one account manager, and consolidated monthly reporting. Revenue compounds quickly across locations.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q"><span class="faq-q-text">What if a parent has a complaint about their laundry?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">All service issues are handled directly by Already Folded. Parents contact us — not your staff. If anything is unsatisfactory, we re-wash it at no charge, guaranteed.</div>
+    </div>
+    <div class="faq-item fade">
+      <div class="faq-q"><span class="faq-q-text">Is there a minimum enrollment size to partner?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">We work with daycares of all sizes. Smaller centers may see lower initial adoption, but the service still adds real value as an enrollment differentiator — and revenue grows as families join.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Already <span>Folded</span></a>
+  <div class="footer-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#for-parents">For Parents</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Partner With Us</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:info@alreadyfolded.com">info@alreadyfolded.com</a>
+  </div>
+  <p class="footer-copy">© 2025 Already Folded</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.submit-btn');
+    btn.textContent = '✓ Request received — we\'ll be in touch shortly!';
+    btn.style.background = 'var(--teal)';
+    btn.disabled = true;
+  });
+
+  function copyMsg() {
+    const text = document.getElementById('shareMsg').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.share-btn.copy');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Message', 2000);
+    });
+  }
+</script>
 </body>
 </html>
