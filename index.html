@@ -629,13 +629,7 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
-    btn.textContent = '✓ Request received — we\'ll be in touch shortly!';
-    btn.style.background = 'var(--teal)';
-    btn.disabled = true;
-  });
+
 
   function copyMsg() {
     const text = document.getElementById('shareMsg').innerText;
